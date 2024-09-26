@@ -1,0 +1,29 @@
+@model IEnumerable<BorrowEquipmentApp.Models.RequestModel>
+
+@{
+    ViewData["Title"] = "Requests";
+}
+
+<h1>Requests</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Equipment Type</th>
+            <th>Description</th>
+            <th>Request Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.Id</td>
+                <td>@request.EquipmentType</td>
+                <td>@request.Description</td>
+                <td>@(request.RequestDate.HasValue ? request.RequestDate.Value.ToShortDateString() : "N/A")</td>
+            </tr>
+        }
+    </tbody>
+</table>
