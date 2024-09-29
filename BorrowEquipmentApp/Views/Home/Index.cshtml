@@ -1,15 +1,16 @@
-﻿@{
-    ViewData["Title"] = "FAST Equipment Tool";
+﻿@using Microsoft.AspNetCore.Mvc
+@{
+    ViewData["Title"] = "Home";
 }
 
 <h1>FAST Equipment Tool</h1>
-<p>This application allows FAST students and professors to request to borrow IT equipment.</p>
+<p>This application allows FAST students and professors to request IT equipment.</p>
 
 <nav>
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/Home/AvailableEquipment">Available Equipment</a></li>
-        <li><a href="/Home/RequestForm">Request Form</a></li>
-        <li><a href="/Home/Requests">View Requests</a></li>
+        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-controller="Home" asp-action="AllEquipment">All Equipment Listing</a></li>
+        <li><a asp-controller="Home" asp-action="AvailableEquipment">Available Equipment</a></li>
+        <li><a asp-controller="Home" asp-action="RequestForm">Request Form</a></li>
     </ul>
 </nav>
