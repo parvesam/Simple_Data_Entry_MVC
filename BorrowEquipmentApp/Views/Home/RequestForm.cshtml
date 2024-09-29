@@ -1,32 +1,29 @@
 @model BorrowEquipmentApp.Models.RequestModel
 
-@{
-    ViewData["Title"] = "Equipment Request Form";
-}
+<h2>Request IT Equipment</h2>
 
-<h1>Equipment Request Form</h1>
 <form asp-action="SubmitRequest" method="post">
-    <div>
-        <label>Name</label>
-        <input asp-for="Name" required />
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" required />
     </div>
-    <div>
-        <label>Email</label>
-        <input asp-for="Email" type="email" required />
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" type="email" required />
     </div>
-    <div>
-        <label>Phone</label>
-        <input asp-for="PhoneNumber" pattern="\d{3}-\d{3}-\d{4}" required />
+    <div class="form-group">
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control" pattern="\d{3}-\d{3}-\d{4}" required />
     </div>
-    <div>
-        <label>Role</label>
+    <div class="form-group">
+        <label asp-for="Role"></label>
         <select asp-for="Role">
             <option>Student</option>
             <option>Professor</option>
         </select>
     </div>
-    <div>
-        <label>Equipment Type</label>
+    <div class="form-group">
+        <label asp-for="EquipmentType"></label>
         <select asp-for="EquipmentType">
             <option>Laptop</option>
             <option>Phone</option>
@@ -34,13 +31,13 @@
             <option>Another</option>
         </select>
     </div>
-    <div>
-        <label>Request Details</label>
-        <textarea asp-for="RequestDetails"></textarea>
+     <div class="form-group">
+        <label asp-for="RequestDetails"></label>
+        <textarea asp-for="RequestDetails" class="form-control"></textarea>
     </div>
-    <div>
-        <label>Duration (days)</label>
-        <input asp-for="Duration" type="number" min="1" required />
+    <div class="form-group">
+        <label asp-for="Duration"></label>
+        <input asp-for="Duration" type="number" min="1" class="form-control" required />
     </div>
-    <button type="submit">Submit Request</button>
+    <button type="submit" class="btn btn-primary">Submit Request</button>
 </form>

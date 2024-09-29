@@ -1,42 +1,28 @@
-@model BorrowEquipmentApp.Models.RequestModel
+@model IEnumerable<BorrowEquipmentApp.Models.RequestModel>
 
-<h2>Request Equipment</h2>
-<form asp-action="SubmitRequest" method="post">
-    @Html.ValidationSummary() <!-- Displays validation errors -->
-    <div>
-        <label>Name:</label>
-        <input asp-for="Name" />
-        @Html.ValidationMessageFor(m => m.Name) <!-- Displays validation message -->
-    </div>
-    <div>
-        <label>Email:</label>
-        <input asp-for="Email" />
-        @Html.ValidationMessageFor(m => m.Email)
-    </div>
-    <div>
-        <label>Phone Number:</label>
-        <input asp-for="PhoneNumber" />
-        @Html.ValidationMessageFor(m => m.PhoneNumber)
-    </div>
-    <div>
-        <label>Role:</label>
-        <input asp-for="Role" />
-        @Html.ValidationMessageFor(m => m.Role)
-    </div>
-    <div>
-        <label>Equipment Type:</label>
-        <input asp-for="EquipmentType" />
-        @Html.ValidationMessageFor(m => m.EquipmentType)
-    </div>
-    <div>
-        <label>Request Details:</label>
-        <textarea asp-for="RequestDetails"></textarea>
-        @Html.ValidationMessageFor(m => m.RequestDetails)
-    </div>
-    <div>
-        <label>Duration (in days):</label>
-        <input asp-for="Duration" type="number" />
-        @Html.ValidationMessageFor(m => m.Duration)
-    </div>
-    <button type="submit">Submit Request</button>
-</form>
+<h2>Admin: Equipment Requests</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Equipment Type</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.Name</td>
+                <td>@request.Role</td>
+                <td>@request.EquipmentType</td>
+                <td>
+                    <button class="btn btn-success">Accept</button>
+                    <button class="btn btn-danger">Deny</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
