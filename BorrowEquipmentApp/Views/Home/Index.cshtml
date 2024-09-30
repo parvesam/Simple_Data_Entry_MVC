@@ -3,14 +3,54 @@
     ViewData["Title"] = "Home";
 }
 
-<h1>FAST Equipment Tool</h1>
-<p>This application allows FAST students and professors to request IT equipment.</p>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-<nav>
-    <ul>
-        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-        <li><a asp-controller="Home" asp-action="AllEquipment">All Equipment Listing</a></li>
-        <li><a asp-controller="Home" asp-action="AvailableEquipment">Available Equipment</a></li>
-        <li><a asp-controller="Home" asp-action="RequestForm">Request Form</a></li>
-    </ul>
-</nav>
+<div class="container text-center">
+
+    <h1 class="my-4">FAST Equipment Tool</h1>
+
+    <div class="container text-center"> 
+        <p class="lead">This application allows FAST students and professors to request IT equipment.</p> 
+    </div>
+        
+
+    <!-- Hero Image -->
+    <div class="my-4">
+        <img src="~/images/equipment-banner.jpg" alt="Equipment Banner" class="img-fluid rounded" style="max-width: 100%; max-height: 500px; object-fit: cover;" />
+    </div>
+
+    <div class="row justify-content-center">
+        <!-- All Equipment Listing Box -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card h-100 shadow-lg" style="border-radius: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">All Equipment Listing</h5>
+                    <p class="card-text">View all available IT equipment.</p>
+                    <a asp-controller="Home" asp-action="AllEquipment" class="btn btn-primary">View Listing</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Equipment Box -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card h-100 shadow-lg" style="border-radius: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">Available Equipment</h5>
+                    <p class="card-text">See equipment currently available for request.</p>
+                    <a asp-controller="Home" asp-action="AvailableEquipment" class="btn btn-primary">Check Availability</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Request Form Box -->
+        <div class="col-md-4 col-sm-6 mb-4">
+            <div class="card h-100 shadow-lg" style="border-radius: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">Request Form</h5>
+                    <p class="card-text">Submit a request for IT equipment.</p>
+                    <a asp-controller="Home" asp-action="RequestForm" class="btn btn-primary">Request Equipment</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
