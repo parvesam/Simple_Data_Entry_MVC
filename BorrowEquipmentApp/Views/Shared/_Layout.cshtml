@@ -6,56 +6,78 @@
     <meta name="description" content="A tool for FAST students and professors to request IT equipment.">
     <meta name="author" content="Samira Parveen">
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        /* Custom Styles */
         html, body {
-            height: 100%;
-            font-family: 'Roboto', sans-serif;
+        height: 100%;
+        font-family: 'Roboto', sans-serif;
         }
 
+        /* Background Image */
         body {
-            display: flex;
-            flex-direction: column;
-            background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        background-image: url('~/images/plain-blue.jpg'); /* Add your image path here */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100vh;
         }
 
-        /* Ensure the footer stays at the bottom */
         .content {
-            flex: 1;
+        flex: 1;
+        background-color: rgba(255, 255, 255, 0.8); /* Add a slight overlay for readability */
+        padding: 20px;
         }
 
+        /* Navbar */
         .navbar {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff; /* or any other color */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
         }
 
         .navbar-brand {
-            font-weight: bold;
-            color: #0d6efd;
+        font-weight: bold;
+        color: #0d6efd;
         }
 
         .navbar-nav .nav-link {
-            color: #555;
-            margin-right: 15px;
-            transition: color 0.3s ease;
+        color: #555;
+        margin-right: 15px;
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
         }
 
         .navbar-nav .nav-link:hover {
-            background-color: rgba(13, 110, 253, 0.1);
-            border-radius: 5px;
+        background-color: rgba(13, 110, 253, 0.1);
+        border-radius: 5px;
         }
 
+        .navbar-nav .nav-link i {
+        margin-right: 5px; /* Spacing between icon and text */
+        }
+
+        /* Footer */
         footer {
-            padding: 20px 0;
-            background-color: #343a40;
-            color: #ffffff;
-            text-align: center;
-            margin-top: auto; /* Pushes the footer to the bottom */
+        padding: 20px 0;
+        background-color: #343a40;
+        color: #ffffff;
+        text-align: center;
+        margin-top: auto;
         }
-
     </style>
+
 </head>
 <body>
     <header>
@@ -68,20 +90,30 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index" title="Go to the Home page">Home</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Index" title="Go to the Home page" aria-current="page">
+                                <i class="fas fa-home"></i> Home
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="AllEquipment" title="View all available equipment">All Equipment Listing</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="AllEquipment" title="View all available equipment">
+                                <i class="fas fa-list"></i> All Equipment Listing
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="AvailableEquipment" title="Check equipment availability">Available Equipment</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="AvailableEquipment" title="Check equipment availability">
+                                <i class="fas fa-check-circle"></i> Available Equipment
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="RequestForm" title="Submit a request for equipment">Request Form</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="RequestForm" title="Submit a request for equipment">
+                                <i class="fas fa-paper-plane"></i> Request Form
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Requests" title="View admin requests">Admin Requests</a>
-                        </li>
+                        <!--<li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Requests" title="View admin requests">
+                                <i class="fas fa-tasks"></i> Admin Requests
+                            </a>
+                        </li>-->
                     </ul>
                 </div>
             </div>
@@ -98,6 +130,7 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
