@@ -1,43 +1,119 @@
 @model BorrowEquipmentApp.Models.RequestModel
 
-<h2>Request IT Equipment</h2>
+@{
+    ViewData["Title"] = "Request IT Equipment";
+}
 
-<form asp-action="SubmitRequest" method="post">
-    <div class="form-group">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" class="form-control" required />
-    </div>
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" type="email" required />
-    </div>
-    <div class="form-group">
-        <label asp-for="PhoneNumber"></label>
-        <input asp-for="PhoneNumber" class="form-control" pattern="\d{3}-\d{3}-\d{4}" required />
-    </div>
-    <div class="form-group">
-        <label asp-for="Role"></label>
-        <select asp-for="Role">
-            <option>Student</option>
-            <option>Professor</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label asp-for="EquipmentType"></label>
-        <select asp-for="EquipmentType">
-            <option>Laptop</option>
-            <option>Phone</option>
-            <option>Tablet</option>
-            <option>Another</option>
-        </select>
-    </div>
-     <div class="form-group">
-        <label asp-for="RequestDetails"></label>
-        <textarea asp-for="RequestDetails" class="form-control"></textarea>
-    </div>
-    <div class="form-group">
-        <label asp-for="Duration"></label>
-        <input asp-for="Duration" type="number" min="1" class="form-control" required />
-    </div>
-    <button type="submit" class="btn btn-primary">Submit Request</button>
-</form>
+<h2 class="text-center my-4">Request IT Equipment</h2>
+
+<div class="container">
+    <form asp-action="SubmitRequest" method="post" class="shadow-lg p-4 rounded" style="background-color: #ffffff;">
+        <div class="row">
+            <!-- Name -->
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" placeholder="Enter your name" required style="width: 100%;"/>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" type="email" placeholder="Enter your email" required style="width: 100%;"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Phone Number -->
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="PhoneNumber" class="form-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" pattern="\d{3}-\d{3}-\d{4}" placeholder="123-456-7890" required style="width: 100%;"/>
+            </div>
+
+            <!-- Role -->
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Role" class="form-label"></label>
+                <select asp-for="Role" class="form-select" style="width: 100%;">
+                    <option selected disabled>Select your role</option>
+                    <option>Student</option>
+                    <option>Professor</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Equipment Type -->
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="EquipmentType" class="form-label"></label>
+                <select asp-for="EquipmentType" class="form-select" style="width: 100%;">
+                    <option selected disabled>Select equipment type</option>
+                    <option>Laptop</option>
+                    <option>Phone</option>
+                    <option>Tablet</option>
+                    <option>Another</option>
+                </select>
+            </div>
+
+            <!-- Duration -->
+            <div class="form-group col-md-6 mb-3">
+                <label asp-for="Duration" class="form-label"></label>
+                <input asp-for="Duration" type="number" min="1" class="form-control" placeholder="Enter duration in days" required style="width: 100%;"/>
+            </div>
+        </div>
+
+        <!-- Request Details -->
+        <div class="form-group mb-3">
+            <label asp-for="RequestDetails" class="form-label"></label>
+            <textarea asp-for="RequestDetails" class="form-control" placeholder="Provide details about your request" rows="4" style="width: 100%;"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg mb-3">Submit Request</button>
+        </div>
+    </form>
+</div>
+
+<!-- Additional Styling -->
+<style>
+    h2 {
+        font-weight: bold;
+        color: #0d6efd;
+    }
+
+    /* Form Styling */
+    .form-group label {
+        font-weight: 500;
+        color: #555;
+    }
+
+    .form-control, .form-select {
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+
+    .form-control:focus, .form-select:focus {
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        border-color: #0d6efd;
+    }
+
+    /* Submit Button */
+    .btn-primary {
+        background-color: #0d6efd;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        font-size: 1.25rem;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+    }
+
+    /* Responsive Layout */
+    @@media (max-width: 768px) {
+        .container {
+            padding: 0;
+        }
+    }
+</style>

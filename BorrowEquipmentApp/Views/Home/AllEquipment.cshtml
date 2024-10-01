@@ -4,26 +4,71 @@
     ViewData["Title"] = "All Equipment Listing";
 }
 
-<h1>All Equipment Listing</h1>
+<h1 class="text-center my-4">All Equipment Listing</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Equipment ID</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Availability</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var equipment in Model)
-        {
-            <tr>
-                <td>@equipment.Id</td>
-                <td>@equipment.Type</td>
-                <td>@equipment.Description</td>
-                <td>@(equipment.Availability ? "Available" : "Not Available")</td>
-            </tr>
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th scope="col">Equipment ID</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var equipment in Model)
+                {
+                    <tr class="text-center">
+                        <td>@equipment.Id</td>
+                        <td>@equipment.Type</td>
+                        <td>@equipment.Description</td>
+                        <td>
+                            <span class="badge @(equipment.Availability ? "bg-success" : "bg-danger")">
+                                @(equipment.Availability ? "Available" : "Not Available")
+                            </span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Additional Styling for Visual Enhancement -->
+<style>
+    h1 {
+        font-weight: bold;
+        color: #0d6efd;
+    }
+
+    /* Table Styling */
+    .table {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .table thead {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .table tbody tr:hover {
+        background-color: rgba(13, 110, 253, 0.1);
+        cursor: pointer;
+    }
+
+    /* Badge Styling */
+    .badge {
+        font-size: 1rem;
+        padding: 0.5em 1em;
+    }
+
+    /* Responsive Table */
+    @@media (max-width: 768px) {
+        .table-responsive {
+            overflow-x: auto;
         }
-    </tbody>
-</table>
+    }
+</style>

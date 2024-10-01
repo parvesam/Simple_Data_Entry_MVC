@@ -1,28 +1,65 @@
 @model IEnumerable<BorrowEquipmentApp.Models.RequestModel>
 
-<h2>Admin: Equipment Requests</h2>
+<div class="container my-5">
+    <h2 class="text-center mb-4">Admin: Equipment Requests</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Role</th>
-            <th>Equipment Type</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var request in Model)
-        {
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
             <tr>
-                <td>@request.Name</td>
-                <td>@request.Role</td>
-                <td>@request.EquipmentType</td>
-                <td>
-                    <button class="btn btn-success">Accept</button>
-                    <button class="btn btn-danger">Deny</button>
-                </td>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Equipment Type</th>
+                <th>Actions</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var request in Model)
+            {
+                <tr>
+                    <td>@request.Name</td>
+                    <td>@request.Role</td>
+                    <td>@request.EquipmentType</td>
+                    <td>
+                        <button class="btn btn-success me-2">Accept</button>
+                        <button class="btn btn-danger">Deny</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Additional Styling -->
+<style>
+    h2 {
+        font-weight: bold;
+        color: #0d6efd;
+    }
+
+    .table {
+        border-radius: 10px;
+        overflow: hidden; /* Ensures rounded corners work */
+    }
+
+    .table th, .table td {
+        vertical-align: middle; /* Centers content vertically */
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+</style>
